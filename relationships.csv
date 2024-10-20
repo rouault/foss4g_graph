@@ -15,14 +15,14 @@ PROJ,GRASS GIS,C_CPP
 GDAL,GRASS GIS,C_CPP
 GDAL,GeoDjango,Python
 GEOS,GeoDjango,Python
-GDAL,rasterio.py,Python
-GDAL,fiona.py,Python
+GDAL,rasterio,Python
+GDAL,fiona,Python
 GDAL,pyogrio,Python
-pyogrio,GeoPandas.py,Python
-GEOS,shapely.py,Python
+pyogrio,GeoPandas,Python
+GEOS,shapely,Python
 GEOS,r-spatial.r,R
-shapely.py,GeoPandas.py,Python
-shapely.py,GeoNode,Java
+shapely,GeoPandas,Python
+shapely,GeoNode,Java
 PROJ,PostGIS,C_CPP
 GEOS,PostGIS,C_CPP
 PostGIS,PostGISRaster,C_CPP
