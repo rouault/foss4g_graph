@@ -20,7 +20,8 @@ GDAL,fiona,Python,direct
 GDAL,pyogrio,Python,direct
 pyogrio,GeoPandas,Python,direct
 GEOS,shapely,Python,direct
-GEOS,r-spatial.r,R,direct
+GEOS,r-spatial,R,direct
+GDAL,r-spatial,R,direct
 shapely,GeoPandas,Python,direct
 shapely,GeoNode,Java,direct
 PROJ,PostGIS,C_CPP,direct
