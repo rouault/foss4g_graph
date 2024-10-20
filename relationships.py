@@ -12,7 +12,15 @@ graph = nx.from_pandas_edgelist(df, source='source', target='target',
 plt.figure(figsize=(10, 10))
 
 center_nodes = ["GDAL", "GEOS", "PROJ"]
-shells = [center_nodes, list(set(graph.nodes) - set(center_nodes))]
+
+grouped_nodes = df.groupby('target_nature')['target'].apply(list).to_dict()
+
+c_cpp = list(set(grouped_nodes.get('C_CPP', [])) - set(center_nodes))
+python = grouped_nodes.get('Python', [])
+java = grouped_nodes.get('Java', [])
+R = grouped_nodes.get('R', [])
+
+shells = [center_nodes, c_cpp + python + java + R]
 
 layout = nx.shell_layout(graph, nlist=shells)
 
