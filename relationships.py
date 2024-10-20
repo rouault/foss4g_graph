@@ -54,11 +54,15 @@ nx.draw_networkx_nodes(graph, layout, node_size=500, node_color=node_colors)
 nx.draw_networkx_labels(graph, layout, font_size=10, font_weight='bold')
 
 edge_styles = []
+edge_labels = {}
 for _, row in df.iterrows():
     if row['dep_nature'] == 'direct':
-        edge_styles.append('solid')  # Continuous line
+        edge_styles.append('solid')
     elif row['dep_nature'] == 'port':
-        edge_styles.append('dashed')  # Dashed line
+        edge_styles.append('dashed')
+        source = row['source']
+        target = row['target']
+        edge_labels[(source, target)] = "ported to"
     else:
         print(row)
         assert False
@@ -67,6 +71,8 @@ for i, (source, target) in enumerate(graph.edges()):
     style = edge_styles[i]
     nx.draw_networkx_edges(graph, layout, edgelist=[(source, target)], style=style, width=1.5, edge_color='gray')
     #plt.plot(*zip(layout[source], layout[target]), linestyle=style, color='gray')
+
+nx.draw_networkx_edge_labels(graph, layout, edge_labels=edge_labels, font_color='black', font_size=10)
 
 plt.title('Dependencies between FOSS4G stack')
 plt.savefig('relationships.png', format='png', dpi=300)
